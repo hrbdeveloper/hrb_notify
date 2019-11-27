@@ -4,20 +4,54 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>HRB Notify</title>
+    <title>HRB Alert</title>
     <link rel="stylesheet" href="dist/css/hrb_notify.css">
     <style>
+        html, body {
+            font-family: Vazir;
+        }
+
         h1 {
             text-align: center;
-            font-family: Vazir;
-            margin: 50px 0;
+            margin: 50px 0 10px;
         }
+
+        h2 {
+            text-align: center;
+            margin: 5px 0 50px;
+        }
+
+        h3, h4, h5, h6 {
+            text-align: center;
+            margin: 5px 0;
+        }
+
+        h3 {
+            background: #ffffff;
+            padding: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px -3px #000;
+            width: calc(100% + 40px);
+            margin: 5px -20px 10px;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: normal;
+            background: rgb(148, 219, 255);
+            background: linear-gradient(0deg, rgb(66, 191, 255) 0%, rgb(118, 222, 255) 100%);
+        }
+
+        section:hover h3 {
+            -webkit-animation: shake 2s infinite;
+            animation: shake 2s infinite;
+        }
+
         .demos {
             position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         a.demoLink {
             height: 40px;
             background: #607D8B;
@@ -31,53 +65,310 @@
             font-family: Vazir;
             text-decoration: none;
         }
+
         a.demoLink:hover {
             background: #10585d;
         }
+
+        section {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+            max-width: 800px;
+            background: #fbfbfb;
+        }
+
+        button {
+            position: relative;
+            width: 150px;
+            height: 40px;
+            background: #0085e2;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin: auto;
+            display: block;
+            border-radius: 4px;
+            color: #fff;
+            font-family: Vazir;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #004a7e;
+        }
+
+        code {
+            background: #3c3c3c;
+            display: block;
+            padding: 10px 10px 0;
+            margin: 10px;
+            color: #00ffa1;
+            border-radius: 60px;
+        }
+
+        code pre {
+            font-family: Tahoma;
+            font-size: 9pt;
+            line-height: 24px;
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        ol {
+            position: relative;
+            width: calc(100% - 50px);
+            padding: 0 20px 0 30px;
+            /* background: #f1f1f1; */
+        }
+        ol ul li {
+            background: #00BCD4;
+            margin: 5px 0;
+            padding: 5px 10px;
+            color: #fff;
+        }
+        .copyRight {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .copyRight a {
+            text-decoration: none;
+            color: #ababab;
+            -webkit-animation: flash 2s infinite;
+            animation: flash 2s infinite;
+        }
+        .copyRight a:hover {
+            color: #369a70;
+            -webkit-animation: tada 2s infinite;
+            animation: tada 2s infinite;
+        }
     </style>
 <body>
+<h1>اچ آر بی نوتیفای</h1>
+<h2>نوتیفیکیشن پیشرفته جهت نمایش پیغام سفارشی</h2>
 
+<section>
+    <h3>نحوه کار کتابخانه (HRB_NOTIFY)</h3>
+    <code>
+        <pre>
+            hrb_notify([
+                'نوع پیغام',
+                "متن پیغام",
+                'موقعیت نمایش پیغام',
+                'افکت ظاهر شدن پیغام',
+                'افکت حذف شدن پیغام',
+                'تایمر حذف پیغام'
+            ]);
+        </pre>
+    </code>
+
+    <ol>
+        <li>نوع پیغام می تونه مقادیر زیر رو بگیره
+            <ul>
+                <li>danger</li>
+                <li>warning</li>
+                <li>info</li>
+                <li>success</li>
+            </ul>
+        </li>
+        <li>متن پیغام متن مورد نظر شما هستش</li>
+        <li>موقعیت نمایش پیغام مقادیر زیر رو میگیره
+            <ul>
+                <li>topRight</li>
+                <li>topCenter</li>
+                <li>topLeft</li>
+                <li>middleLeft</li>
+                <li>middleCenter</li>
+                <li>middleRight</li>
+                <li>bottomLeft</li>
+                <li>bottomCenter</li>
+                <li>bottomRight</li>
+            </ul>
+        </li>
+        <li>افکت ظاهر شدن پیغام مقادیر زیر رو میگیره
+            <ul>
+                <li>fadeIn</li>
+                <li>fadeInDown</li>
+                <li>fadeInLeft</li>
+                <li>fadeInRight</li>
+                <li>fadeInUp</li>
+                <li>bounceIn</li>
+                <li>bounceInDown</li>
+                <li>bounceInLeft</li>
+                <li>bounceInRight</li>
+                <li>bounceInUp</li>
+                <li>shake</li>
+                <li>swing</li>
+                <li>tada</li>
+                <li>wobble</li>
+                <li>flip</li>
+                <li>flipInX</li>
+                <li>flipInY</li>
+                <li>lightSpeedIn</li>
+                <li>rotateIn</li>
+                <li>rotateInDownLeft</li>
+                <li>rotateInDownRight</li>
+                <li>rotateInUpLeft</li>
+                <li>rotateInUpRight</li>
+                <li>slideInDown</li>
+                <li>slideInUp</li>
+                <li>slideInLeft</li>
+                <li>slideInRight</li>
+                <li>rollIn</li>
+                <li>zoomIn</li>
+                <li>zoomInDown</li>
+                <li>zoomInUp</li>
+                <li>zoomInLeft</li>
+                <li>zoomInRight</li>
+            </ul>
+        </li>
+        <li> افکت محو شدن پیغام مقادیر زیر رو میگیره
+            <ul>
+                <li>fadeOut</li>
+                <li>fadeOutDown</li>
+                <li>fadeOutLeft</li>
+                <li>fadeOutRight</li>
+                <li>fadeOutUp</li>
+                <li>bounceOut</li>
+                <li>bounceOutDown</li>
+                <li>bounceOutLeft</li>
+                <li>bounceOutRight</li>
+                <li>bounceOutUp</li>
+                <li>shake</li>
+                <li>swOutg</li>
+                <li>tada</li>
+                <li>wobble</li>
+                <li>flip</li>
+                <li>flipOutX</li>
+                <li>flipOutY</li>
+                <li>lightSpeedOut</li>
+                <li>rotateOut</li>
+                <li>rotateOutDownLeft</li>
+                <li>rotateOutDownRight</li>
+                <li>rotateOutUpLeft</li>
+                <li>rotateOutUpRight</li>
+                <li>slideOutDown</li>
+                <li>slideOutUp</li>
+                <li>slideOutLeft</li>
+                <li>slideOutRight</li>
+                <li>rollOut</li>
+                <li>zoomOut</li>
+                <li>zoomOutDown</li>
+                <li>zoomOutUp</li>
+                <li>zoomOutLeft</li>
+                <li>zoomOutRight</li>
+                <li>hinge</li>
+            </ul>
+        </li>
+        <li>تایمر حذف پیغام (به ثانیه مشخص می شود)</li>
+    </ol>
+
+</section>
+<section>
+    <h3>نوع خطا</h3>
+    <button id="danger">پیغام خطا</button>
+    <code>
+        <pre>
+            hrb_notify([
+                'danger',
+                "نام کاربری وارد شده اشتباه است!",
+                'topRight',
+                'bounceIn',
+                'bounceOut',
+                '5'
+            ]);
+        </pre>
+    </code>
+    <button id="warning">پیغام هشدار</button>
+    <code>
+        <pre>
+            hrb_notify([
+                'warning',
+                "سشن سایت منقضی شده",
+                'topLeft',
+                'bounceIn',
+                'bounceOut',
+                '5'
+            ]);
+        </pre>
+    </code>
+    <button id="info">پیغام اطلاع رسانی</button>
+    <code>
+        <pre>
+            hrb_notify([
+                'info',
+                "کاربر گرامی ، حمیدرضابیگلری عزیز خوش آمدی",
+                'bottomLeft',
+                'rollIn',
+                'rollOut',
+                '5'
+            ]);
+        </pre>
+    </code>
+    <button id="success">پیغام موفقیت آمیز</button>
+    <code>
+        <pre>
+            hrb_notify([
+                'success',
+                "با موفقیت وارد شدید",
+                'bottomRight',
+                'flipInY',
+                'flipOutX',
+                '5'
+            ]);
+        </pre>
+    </code>
+</section>
+
+<div class="copyRight">
+    <a href="http://hrbcms.ir">طراحی و توسعه توسط حمیدرضا بیگلری</a>
+</div>
 </body>
 <script src="dist/js/jquery.min.js"></script>
 <script src="dist/js/hrb_notify.js"></script>
 <script>
-    hrb_notify([
-        'warning',
-        "سشن سایت منقضی شده",
-        'topRight',
-        'bounceIn', //['fadeIn','fadeInDown','fadeInLeft','fadeInRight','fadeInUp','bounceIn','bounceInDown','bounceInLeft','bounceInRight','bounceInUp','shake','swing','tada','wobble','flip','flipInX','flipInY','lightSpeedIn','rotateIn','rotateInDownLeft','rotateInDownRight','rotateInUpLeft','rotateInUpRight','slideInDown','slideInUp','slideInLeft','slideInRight','rollIn','zoomIn','zoomInDown','zoomInUp','zoomInLeft','zoomInRight']
-        'bounceOut', //['fadeOut','fadeOutDown','fadeOutLeft','fadeOutRight','fadeOutUp','bounceOut','bounceOutDown','bounceOutLeft','bounceOutRight','bounceOutUp','shake','swOutg','tada','wobble','flip','flipOutX','flipOutY','lightSpeedOut','rotateOut','rotateOutDownLeft','rotateOutDownRight','rotateOutUpLeft','rotateOutUpRight','slideOutDown','slideOutUp','slideOutLeft','slideOutRight','rollOut','zoomOut','zoomOutDown','zoomOutUp','zoomOutLeft','zoomOutRight','hinge']
-        '20'
-    ]);
-    setTimeout(function () {
+    $('#danger').click(function () {
         hrb_notify([
             'danger',
-            "نام کاربری یا کلمه عبور نادرست است",
+            "نام کاربری وارد شده اشتباه است!",
             'topRight',
-            'bounceIn', //['fadeIn','fadeInDown','fadeInLeft','fadeInRight','fadeInUp','bounceIn','bounceInDown','bounceInLeft','bounceInRight','bounceInUp','shake','swing','tada','wobble','flip','flipInX','flipInY','lightSpeedIn','rotateIn','rotateInDownLeft','rotateInDownRight','rotateInUpLeft','rotateInUpRight','slideInDown','slideInUp','slideInLeft','slideInRight','rollIn','zoomIn','zoomInDown','zoomInUp','zoomInLeft','zoomInRight']
-            'bounceOut', //['fadeOut','fadeOutDown','fadeOutLeft','fadeOutRight','fadeOutUp','bounceOut','bounceOutDown','bounceOutLeft','bounceOutRight','bounceOutUp','shake','swOutg','tada','wobble','flip','flipOutX','flipOutY','lightSpeedOut','rotateOut','rotateOutDownLeft','rotateOutDownRight','rotateOutUpLeft','rotateOutUpRight','slideOutDown','slideOutUp','slideOutLeft','slideOutRight','rollOut','zoomOut','zoomOutDown','zoomOutUp','zoomOutLeft','zoomOutRight','hinge']
-            '10'
+            'flipInX',
+            'bounceOut',
+            '5'
         ]);
-    },1000)
-    setTimeout(function () {
+    });
+    $('#warning').click(function () {
+        hrb_notify([
+            'warning',
+            "سشن سایت منقضی شده",
+            'topLeft',
+            'bounceIn',
+            'bounceOut',
+            '5'
+        ]);
+    });
+    hrb_notify([])
+    $('#info').click(function () {
         hrb_notify([
             'info',
             "کاربر گرامی ، حمیدرضابیگلری عزیز خوش آمدی",
-            'topRight',
-            'bounceIn', //['fadeIn','fadeInDown','fadeInLeft','fadeInRight','fadeInUp','bounceIn','bounceInDown','bounceInLeft','bounceInRight','bounceInUp','shake','swing','tada','wobble','flip','flipInX','flipInY','lightSpeedIn','rotateIn','rotateInDownLeft','rotateInDownRight','rotateInUpLeft','rotateInUpRight','slideInDown','slideInUp','slideInLeft','slideInRight','rollIn','zoomIn','zoomInDown','zoomInUp','zoomInLeft','zoomInRight']
-            'bounceOut', //['fadeOut','fadeOutDown','fadeOutLeft','fadeOutRight','fadeOutUp','bounceOut','bounceOutDown','bounceOutLeft','bounceOutRight','bounceOutUp','shake','swOutg','tada','wobble','flip','flipOutX','flipOutY','lightSpeedOut','rotateOut','rotateOutDownLeft','rotateOutDownRight','rotateOutUpLeft','rotateOutUpRight','slideOutDown','slideOutUp','slideOutLeft','slideOutRight','rollOut','zoomOut','zoomOutDown','zoomOutUp','zoomOutLeft','zoomOutRight','hinge']
-            '15'
+            'bottomLeft',
+            'rollIn',
+            'rollOut',
+            '5'
         ]);
-    },2000)
-    setTimeout(function () {
+    });
+    $('#success').click(function () {
         hrb_notify([
             'success',
-            "با موفقیت ثبت شد",
-            'topRight',
-            'bounceIn', //['fadeIn','fadeInDown','fadeInLeft','fadeInRight','fadeInUp','bounceIn','bounceInDown','bounceInLeft','bounceInRight','bounceInUp','shake','swing','tada','wobble','flip','flipInX','flipInY','lightSpeedIn','rotateIn','rotateInDownLeft','rotateInDownRight','rotateInUpLeft','rotateInUpRight','slideInDown','slideInUp','slideInLeft','slideInRight','rollIn','zoomIn','zoomInDown','zoomInUp','zoomInLeft','zoomInRight']
-            'bounceOut', //['fadeOut','fadeOutDown','fadeOutLeft','fadeOutRight','fadeOutUp','bounceOut','bounceOutDown','bounceOutLeft','bounceOutRight','bounceOutUp','shake','swOutg','tada','wobble','flip','flipOutX','flipOutY','lightSpeedOut','rotateOut','rotateOutDownLeft','rotateOutDownRight','rotateOutUpLeft','rotateOutUpRight','slideOutDown','slideOutUp','slideOutLeft','slideOutRight','rollOut','zoomOut','zoomOutDown','zoomOutUp','zoomOutLeft','zoomOutRight','hinge']
-            '13'
+            "با موفقیت وارد شدید",
+            'bottomRight',
+            'flipInY',
+            'flipOutX',
+            '5'
         ]);
-    },3000)
+    });
 </script>
 </html>
